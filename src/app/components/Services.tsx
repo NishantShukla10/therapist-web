@@ -1,3 +1,7 @@
+'use client';
+
+import Image from 'next/image';
+
 const services = [
   {
     title: 'Anxiety & Stress Management',
@@ -32,11 +36,15 @@ export default function Services() {
               key={index}
               className="bg-gray-50 rounded-lg shadow-sm overflow-hidden transition hover:shadow-md"
             >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   {service.title}
